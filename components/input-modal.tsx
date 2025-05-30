@@ -1,21 +1,27 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
 interface InputModalProps {
-  userInput: { min: string; max: string }
-  setUserInput: React.Dispatch<React.SetStateAction<{ min: string; max: string }>>
-  onSubmit: () => void
+  userInput: { min: string; max: string };
+  setUserInput: React.Dispatch<
+    React.SetStateAction<{ min: string; max: string }>
+  >;
+  onSubmit: () => void;
 }
 
-export default function InputModal({ userInput, setUserInput, onSubmit }: InputModalProps) {
+export default function InputModal({
+  userInput,
+  setUserInput,
+  onSubmit,
+}: InputModalProps) {
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    onSubmit()
-  }
+    e.preventDefault();
+    onSubmit();
+  };
 
   return (
-    <div className="bg-gray-800 p-8 rounded-lg max-w-md w-full">
+    <div className="bg-gray-800 p-8 rounded-[10px] max-w-md w-full">
       <h2 className="text-2xl font-bold mb-4">What Do You Remember?</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -27,7 +33,9 @@ export default function InputModal({ userInput, setUserInput, onSubmit }: InputM
             id="min"
             type="number"
             value={userInput.min}
-            onChange={(e) => setUserInput({ ...userInput, min: e.target.value })}
+            onChange={(e) =>
+              setUserInput({ ...userInput, min: e.target.value })
+            }
             className="w-full p-2 rounded bg-gray-700 text-white border border-gray-600"
             required
           />
@@ -41,7 +49,9 @@ export default function InputModal({ userInput, setUserInput, onSubmit }: InputM
             id="max"
             type="number"
             value={userInput.max}
-            onChange={(e) => setUserInput({ ...userInput, max: e.target.value })}
+            onChange={(e) =>
+              setUserInput({ ...userInput, max: e.target.value })
+            }
             className="w-full p-2 rounded bg-gray-700 text-white border border-gray-600"
             required
           />
@@ -50,12 +60,12 @@ export default function InputModal({ userInput, setUserInput, onSubmit }: InputM
         <div className="flex justify-center pt-4">
           <button
             type="submit"
-            className="bg-white text-black font-bold py-2 px-6 rounded-lg hover:bg-gray-200 transition-colors"
+            className="bg-white text-black font-bold py-2 px-6 rounded-[10px] hover:bg-gray-200 transition-colors"
           >
             Submit
           </button>
         </div>
       </form>
     </div>
-  )
+  );
 }
