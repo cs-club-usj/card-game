@@ -16,7 +16,7 @@ export default function Home() {
   const generateCardValues = () => {
     const values = [];
     for (let i = 0; i < 18; i++) {
-      values.push(Math.floor(Math.random() * 19999) - 9999);
+      values.push(Math.floor(Math.random() * 12271) - 4852);
     }
     values[6] = -4853;
     values[17] = 7419;
